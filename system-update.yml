@@ -1,0 +1,21 @@
+---
+- name: System Upgrade
+  hosts: all
+  become: true
+  tasks:
+   - name: Update apt cache
+     apt:
+       update_cache: yes
+       cache_vaild_time: 3600
+   - name: Update all packages to their latest version
+     apt:
+       name: "*"
+       state: latest
+   - name: Upgrade the OS
+     apt:
+       upgrade: dist
+   - name: Remove dependencies that are no longer required
+     apt:
+       autoremove: yes
+...
+
