@@ -6,7 +6,7 @@
    - name: Update apt cache
      apt:
        update_cache: yes
-       cache_vaild_time: 3600
+       cache_valid_time: 3600
    - name: Update all packages to their latest version
      apt:
        name: "*"
