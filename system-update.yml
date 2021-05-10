@@ -19,9 +19,9 @@
       apt:
         autoremove: yes
     - name: Check if reboot is required
-        stat:
-          path: /var/run/reboot-required
-        register: reboot_required_result
+      stat:
+        path: /var/run/reboot-required
+      register: reboot_required_result
     - name: Reboot
       reboot:
       when: reboot_required_result.stat.exists
